@@ -5,6 +5,18 @@ import Sort from "../components/Sort";
 import Heropopup from "../components/Heropopup";
 
 const Characters = () => {
+  const [heroes, setHeroes] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch("https://swapi.dev/api/people/")
+      .then((response) => {
+        return response.json();
+      })
+      .then((arrayHeroes) => {
+        setHeroes(arrayHeroes.results);
+      });
+  }, []);
+
   return (
     <>
       <section className="characters">
@@ -23,15 +35,9 @@ const Characters = () => {
           <Sort />
 
           <div className="heroes">
-            <HeroesItem />
-            <HeroesItem />
-            <HeroesItem />
-            <HeroesItem />
-            <HeroesItem />
-            <HeroesItem />
-            <HeroesItem />
-            <HeroesItem />
-            <HeroesItem />
+            {heroes.map((obj) => (
+              <HeroesItem key={obj.url} {...obj} />
+            ))}
           </div>
         </div>
       </section>
