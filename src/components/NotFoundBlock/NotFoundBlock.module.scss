@@ -1,0 +1,81 @@
+.not-found {
+  background: #17002F;
+  padding-bottom: 120px;
+
+  &__text {
+    font-weight: 700;
+    font-size: 700px;
+    line-height: 640px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    padding: 73px;
+    filter: drop-shadow(4px 4px 24px rgba(1, 17, 38, 0.2));
+    user-select: none;
+
+    &::after {
+      content: "";
+      background-image: url("../../asssets/img/moon.png");
+      display: block;
+      width: 570px;
+      height: 523px;
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: contain;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+  }
+}
+
+@media screen and (max-width: 1349px) {
+  .not-found {
+    &__text {
+      font-size: 561px;
+
+      &::after {
+        width: 459px;
+        height: 419px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .not-found {
+    height: 90vh;
+
+    &__text {
+      font-size: 375px;
+      line-height: 100%;
+
+      &::after {
+        width: 313px;
+        height: 284px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .not-found {
+    height: 94vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__text {
+      font-size: 175px;
+
+      &::after {
+        width: 143px;
+        height: 131px;
+      }
+    }
+  }
+}
