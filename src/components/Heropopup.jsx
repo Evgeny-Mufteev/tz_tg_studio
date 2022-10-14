@@ -4,9 +4,9 @@ import male from "../asssets/img/gender-male.svg";
 import female from "../asssets/img/gender-female.svg";
 import getero from "../asssets/img/gender-getero.svg";
 
-const Heropopup = () => {
+const Heropopup = ({ open, setOpen }) => {
   return (
-    <div className="hero-popup">
+    <div className={`hero-popup ${open ? "active" : ""}`}>
       <div className="hero-popup__inner">
         <div className="hero-popup__gender">
           <div className="hero-popup__img">
@@ -41,7 +41,11 @@ const Heropopup = () => {
             </div>
           </div>
         </div>
-        <div className="hero-popup__close"></div>
+        <div
+          onClick={() => {
+            setOpen(false);
+          }}
+          className="hero-popup__close"></div>
       </div>
     </div>
   );

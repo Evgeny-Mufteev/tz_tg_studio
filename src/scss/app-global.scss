@@ -65,9 +65,10 @@
   display: none;
   width: 100vw;
   height: 100vh;
-  background: #212121;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.5s ease-in-out;
   opacity: 0.5;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 19;
@@ -122,7 +123,6 @@
   }
 
 }
-
 
 .promo {
   background: linear-gradient(180deg, #1F2A63 0%, #17002F 100%);

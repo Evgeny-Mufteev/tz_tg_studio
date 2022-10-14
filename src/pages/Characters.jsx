@@ -17,6 +17,8 @@ const Characters = () => {
       });
   }, []);
 
+  const [open, setOpen] = React.useState(false);
+
   return (
     <>
       <section className="characters">
@@ -36,12 +38,12 @@ const Characters = () => {
 
           <div className="heroes">
             {heroes.map((obj) => (
-              <HeroesItem key={obj.url} {...obj} />
+              <HeroesItem onClick={() => setOpen(true)} key={obj.url} {...obj} />
             ))}
           </div>
         </div>
       </section>
-      <Heropopup />
+      <Heropopup open={open} setOpen={setOpen} />
     </>
   );
 };
