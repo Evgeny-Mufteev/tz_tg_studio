@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e3a6bcce.css",
+    "main.js": "/static/js/main.c81bb0fb.js",
+    "static/media/logo.svg": "/static/media/logo.5a2522cfa939f0777187a95b7d3b90a0.svg",
+    "static/media/BannerComplete.png": "/static/media/BannerComplete.d5dce7c963a6b0e34c1f.png",
+    "static/media/moon.png": "/static/media/moon.8e856732d29fd898df72.png",
+    "static/media/gender-female.svg": "/static/media/gender-female.c3795a5b3018f7135e18756d8ff813e0.svg",
+    "static/media/gender-male.svg": "/static/media/gender-male.f2f3a142e4f34468a85140973385c477.svg",
+    "static/media/BannerComplete.webp": "/static/media/BannerComplete.158288da9a75d0c3ccb5.webp",
+    "static/media/gender-getero.svg": "/static/media/gender-getero.884c7c33555dd030f152f3e4497edbc3.svg",
+    "static/media/Karla-Bold.woff2": "/static/media/Karla-Bold.ae0ef56ca7c1898a3ba5.woff2",
+    "static/media/Karla-Regular.woff2": "/static/media/Karla-Regular.15a963c022c71b0d2584.woff2",
+    "index.html": "/index.html",
+    "main.e3a6bcce.css.map": "/static/css/main.e3a6bcce.css.map",
+    "main.c81bb0fb.js.map": "/static/js/main.c81bb0fb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e3a6bcce.css",
+    "static/js/main.c81bb0fb.js"
+  ]
+}
