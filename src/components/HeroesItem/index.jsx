@@ -2,9 +2,13 @@ import React from "react";
 
 import styles from "./HeroesItem.module.scss";
 
-const HeroesItem = ({ name, height, mass, gender, birth_year }) => {
+const HeroesItem = ({ name, height, mass, gender, birth_year, setOpen }) => {
   return (
-    <div className={styles.hero}>
+    <div
+      className={styles.hero}
+      onClick={() => {
+        setOpen(true);
+      }}>
       <div className={styles["hero__item"]}>
         <div className={styles["hero__title"]}>{name}</div>
         <div className={styles["hero__attributes"]}>

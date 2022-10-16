@@ -9,7 +9,6 @@ const MainLayout = () => {
       <main className="main">
         <Outlet />
       </main>
-      <div className="overlay"></div>
     </div>
   );
 };

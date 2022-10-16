@@ -6,6 +6,8 @@ import Heropopup from "../components/Heropopup";
 
 const Characters = () => {
   const [heroes, setHeroes] = React.useState([]);
+  const [open, setOpen] = React.useState(false);
+  const [popupHeroes, popupSetHeroes] = React.useState({});
 
   React.useEffect(() => {
     fetch("https://swapi.dev/api/people/")
@@ -16,8 +18,6 @@ const Characters = () => {
         setHeroes(arrayHeroes.results);
       });
   }, []);
-
-  const [open, setOpen] = React.useState(false);
 
   return (
     <>
@@ -38,12 +38,24 @@ const Characters = () => {
 
           <div className="heroes">
             {heroes.map((obj) => (
-              <HeroesItem onClick={() => setOpen(true)} key={obj.url} {...obj} />
+              <HeroesItem
+                setOpen={setOpen}
+                popupHeroes={popupHeroes}
+                popupSetHeroes={popupSetHeroes}
+                onClick={() => setOpen(true)}
+                key={obj.url}
+                {...obj}
+              />
             ))}
           </div>
         </div>
       </section>
-      <Heropopup open={open} setOpen={setOpen} />
+      <Heropopup
+        open={open}
+        setOpen={setOpen}
+        popupHeroes={popupHeroes}
+        popupSetHeroes={popupSetHeroes}
+      />
     </>
   );
 };

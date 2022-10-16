@@ -25,6 +25,7 @@
   justify-content: space-between;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .container {
@@ -61,22 +62,20 @@
   background: var(--btn-color-return);
 }
 
-.overlay {
-  display: none;
+.hero-popup.active~.overlay {
+  display: block;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
   transition: all 0.5s ease-in-out;
   opacity: 0.5;
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
+  // transform: translate(-50%, -50%);
   z-index: 19;
 }
 
-.overlay.active {
-  display: block;
-}
 
 .no-scroll {
   overflow: hidden;
@@ -373,3 +372,5 @@
     grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
   }
 }
+
+// .hero-popup.active

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import logoSvg from "../asssets/img/logo.svg";
 
@@ -8,22 +8,22 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="header__inner">
-          <Link to="/">
+          <NavLink exact={true} to="/">
             <div className="header__logo">
               <img src={logoSvg} alt="star wars" />
             </div>
-          </Link>
+          </NavLink>
           <nav className="header__nav">
             <ul className="header__list">
               <li className="header__item">
-                <Link to="/" className="header__link active">
+                <NavLink exact={true} to="/" className="header__link">
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="header__item">
-                <Link to="characters" className="header__link">
+                <NavLink to="characters" className="header__link">
                   Characters
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </nav>

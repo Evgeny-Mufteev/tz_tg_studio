@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import bannerPng from "../asssets/img/BannerComplete.png";
 import bannerWebp from "../asssets/img/BannerComplete.webp";
@@ -16,9 +16,9 @@ const Home = () => {
             <div className="promo__text">
               You can find out all the information about your favorite characters
             </div>
-            <Link to="characters" className="btn btn__root promo__link">
+            <NavLink to="characters" className="btn btn__root promo__link">
               See more...
-            </Link>
+            </NavLink>
           </div>
           <div className="promo__img">
             <picture>
