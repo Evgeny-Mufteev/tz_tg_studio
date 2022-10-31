@@ -1,15 +1,11 @@
 .hero-popup {
-  display: none;
+  display: block;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 20;
   transition: all 0.5s ease-in-out;
-
-  &.active {
-    display: block;
-  }
 
   &__inner {
     width: 800px;

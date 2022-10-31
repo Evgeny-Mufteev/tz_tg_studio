@@ -2,13 +2,16 @@ import React from "react";
 
 import styles from "./HeroesItem.module.scss";
 
-const HeroesItem = ({ name, height, mass, gender, birth_year, setOpen }) => {
+const HeroesItem = React.memo(function HeroesItem({
+  name,
+  height,
+  mass,
+  gender,
+  birth_year,
+  onOpenModal,
+}) {
   return (
-    <div
-      className={styles.hero}
-      onClick={() => {
-        setOpen(true);
-      }}>
+    <div className={styles.hero} onClick={onOpenModal}>
       <div className={styles["hero__item"]}>
         <div className={styles["hero__title"]}>{name}</div>
         <div className={styles["hero__attributes"]}>
@@ -29,6 +32,6 @@ const HeroesItem = ({ name, height, mass, gender, birth_year, setOpen }) => {
       </div>
     </div>
   );
-};
+});
 
 export default HeroesItem;

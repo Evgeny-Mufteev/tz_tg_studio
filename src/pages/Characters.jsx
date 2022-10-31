@@ -8,16 +8,38 @@ const Characters = () => {
   const [heroes, setHeroes] = React.useState([]);
   const [open, setOpen] = React.useState(false);
   const [popupHeroes, popupSetHeroes] = React.useState({});
+  // filter
+  const [search, setSearch] = React.useState("");
+  const [checked, setChecked] = React.useState("all");
+  // end filter
 
   React.useEffect(() => {
     fetch("https://swapi.dev/api/people/")
-      .then((response) => {
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((arrayHeroes) => {
         setHeroes(arrayHeroes.results);
       });
   }, []);
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
+  const onOpenModal = (obj = null) => {
+    if (typeof obj === "object") {
+      setOpen(obj);
+    }
+  };
+
+  const array = React.useMemo(() => {
+    const key = search.toLowerCase().trim();
+    if (search.trim().length || checked) {
+      const f1 = checked === "all" ? heroes : heroes.filter((obj) => obj.gender === checked);
+      return f1.filter((obj) => obj.name.toLowerCase().trim().includes(key));
+    } else {
+      return heroes;
+    }
+  }, [heroes, search, checked]);
 
   return (
     <>
@@ -30,19 +52,16 @@ const Characters = () => {
             60 <b>Peoples</b> for you to choose your favorite
           </h2>
 
-          <div className="search-root">
-            <input className="search-root__input" type="text" placeholder="find..." />
-          </div>
+          <Search value={search} onSearch={setSearch} />
 
-          <Sort />
+          <Sort checked={checked} setChecked={setChecked} />
 
           <div className="heroes">
-            {heroes.map((obj) => (
+            {array.map((obj) => (
               <HeroesItem
-                setOpen={setOpen}
                 popupHeroes={popupHeroes}
                 popupSetHeroes={popupSetHeroes}
-                onClick={() => setOpen(true)}
+                onOpenModal={() => onOpenModal(obj)}
                 key={obj.url}
                 {...obj}
               />
@@ -50,13 +69,34 @@ const Characters = () => {
           </div>
         </div>
       </section>
-      <Heropopup
-        open={open}
-        setOpen={setOpen}
-        popupHeroes={popupHeroes}
-        popupSetHeroes={popupSetHeroes}
-      />
+      {open ? (
+        <Heropopup
+          heroes={open}
+          onClose={onClose}
+          popupHeroes={popupHeroes}
+          popupSetHeroes={popupSetHeroes}
+        />
+      ) : null}
     </>
+  );
+};
+
+const Search = ({ value = "", onSearch = () => {} }) => {
+  const onChange = (event) => {
+    onSearch(event.target.value);
+  };
+
+  //
+  return (
+    <div className="search-root">
+      <input
+        className="search-root__input"
+        type="text"
+        placeholder="find..."
+        value={value}
+        onChange={onChange}
+      />
+    </div>
   );
 };
 

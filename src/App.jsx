@@ -14,7 +14,7 @@ const App = () => {
       <Route path="/" element={<MainLayout />}>
         <Route path="" element={<Home />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="characters" element={<Characters />} />
+        <Route path="/characters" element={<Characters />} />
       </Route>
     </Routes>
   );
